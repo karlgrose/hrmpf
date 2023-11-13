@@ -6,6 +6,15 @@ rm -rf hrmpf-include
 mkdir -p hrmpf-include/etc/zfs
 : > hrmpf-include/etc/zfs/zpool.cache
 
+# Copy local repo configs
+cp -r /etc/xbps.d hrmpf-include/etc/
+# Copy Void installer files
+mkdir -p hrmpf-include/root
+cp -r /root/void/ hrmpf-include/root/
+# Copy local repo files
+mkdir -p hrmpf-include/opt
+cp -r /opt/localrepo hrmpf-include/opt/
+
 mkdir -p hrmpf-include/etc/runit/runsvdir/default
 ln -s /etc/sv/nanoklogd hrmpf-include/etc/runit/runsvdir/default/
 ln -s /etc/sv/socklog-unix hrmpf-include/etc/runit/runsvdir/default/socklog-unix
@@ -26,8 +35,8 @@ chmod 0755 hrmpf-include/usr/bin/void-installer
 ./mklive.sh \
 	-T "hrmpf live/rescue system" \
 	-C "loglevel=6 printk.time=1 consoleblank=0 net.ifnames=0" \
-	-r https://repo-default.voidlinux.org/current \
-	-r https://repo-default.voidlinux.org/current/nonfree \
+	-r https://repo-fastly.voidlinux.org/current \
+	-r https://repo-fastly.voidlinux.org/current/nonfree \
 	-F 2048 \
 	-i zstd \
 	-s "xz -Xbcj x86" \
