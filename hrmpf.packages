@@ -443,6 +443,7 @@ gcc
 gdb
 gettext
 git
+github-cli
 glibc-devel
 libtool
 m4
