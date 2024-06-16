@@ -34,6 +34,7 @@ chmod 0755 hrmpf-include/usr/bin/void-installer
 
 ./mklive.sh \
 	-T "hrmpf live/rescue system" \
+	-v linux6.8 \
 	-C "loglevel=6 printk.time=1 consoleblank=0" \
 	-r https://repo-fastly.voidlinux.org/current \
 	-r https://repo-fastly.voidlinux.org/current/nonfree \
