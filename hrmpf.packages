@@ -1,6 +1,6 @@
 # mainline kernel
-linux6.8
-linux6.8-headers
+linux6.11
+linux6.11-headers
 
 # lts kernel
 linux6.1
